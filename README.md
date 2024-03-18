@@ -16,6 +16,8 @@ Sur une mission, il faut assigner au moins 1 agent disposant de la spécialité 
 
 ATTENTION : Toutes les infos sont Case Sensitive, je n'ai pas ajouté de code supplémentaire pour convertir les chaines en majuscule ou minuscule.
 
+LA db name est AGENCE
+
 Exemple de SQL pour créer les tables et les remplir :
 
 
