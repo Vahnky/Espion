@@ -1,0 +1,36 @@
+h1{
+    text-align: center;
+    text-decoration: underline;
+}
+
+h2{
+    text-align: center;
+    text-decoration: underline;
+}
+
+form, p{
+    text-align: center;
+    font-size: larger;
+}
+
+.dd{
+    margin:25px;
+    width:200px;
+    height:30px;
+}
+
+a, p.detail{
+    border: solid 2px black;
+    border-radius: 10px;
+    margin:10px;
+    padding:10px;
+    color:black;
+}
+
+li{
+    padding:20px;
+}
+
+input{
+    margin:5px;
+}
