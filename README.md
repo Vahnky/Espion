@@ -4,6 +4,9 @@ Ceci est un projet pour mon école, ou on devait :
 - afficher des missions sur la page principale,
 - si on clique sur une d'entre elles, on accède sur une autre page aux détails de cette mission.
 
+CONNEXION : LOGIN : Dupont
+	    MOT DE PASSE : ABC123@
+
 De plus, on devait créer une page de connection, pour accéder au back office dans lequel on pourrait ajouter : des agents, des cibles, des contacts, des planques ainsi que des missions.
 Dans ces dernières on devait pouvoir ajouter, modifier, supprimer les valeurs des colonnes.
 
