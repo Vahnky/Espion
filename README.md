@@ -91,7 +91,7 @@ CREATE TABLE Missions (
 
 
 INSERT INTO Admins (Nom, Prenom, AdresseMail, Pass, DateCreation)
-VALUES ('Dupont', 'Jane', 'jane@A.com', SHA2('123', 512), '2024-03-14');
+VALUES ('Dupont', 'Jane', 'jane@A.com', SHA2('ABC123@', 512), '2024-03-14');
 
 
 INSERT INTO Agents (Nom, Prenom, DateNaissance, CodeIdentification, Nationalite, Specialite)
