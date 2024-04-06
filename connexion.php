@@ -5,29 +5,17 @@
 $non="";
 
 
-
-
-// Connexion à la base de données
-$host = 'localhost';
-$dbname = 'agence';
-$username = 'root';
-$password = '';
-
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;", $username, $password);
- 
-} catch (PDOException $e) {
-    echo 'Erreur de connexion à la base de données : ' . $e->getMessage();
-    exit();
-}
-
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Envoyer'])) {
+
+require_once 'pdo.php'; 
+
+
     if(isset($_POST['nom'])){$nom = htmlentities($_POST['nom']);}
     if(isset($_POST['pass'])){$pass = htmlentities($_POST['pass']);}
 
 
     // Requête préparée pour récupérer l'utilisateur
-    $statement = $pdo->prepare('SELECT * FROM admins WHERE nom = :nom');
+    $statement = $conn->prepare('SELECT * FROM admins WHERE nom = :nom');
     $statement->bindValue(':nom', $nom);
 
     if ($statement->execute()) {
@@ -50,6 +38,7 @@ if ($admins === false) {
     } else {
         echo 'Impossible de récupérer l\'utilisateur.';
     }
+$conn=null;
 }
 ?>
 

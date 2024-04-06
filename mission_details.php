@@ -1,12 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "AGENCE"; 
-
+require_once 'pdo.php'; 
 try {
 
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
 
     // Récup l'ID de mission depuis l'URL
     $mission_id = $_GET['mission_id'];

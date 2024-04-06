@@ -25,7 +25,7 @@ echo "Bienvenue" . " " . $_SESSION['nom'];
 
 
     <!-- /////////////////////////////////////////////CREATION CIBLE -->
-
+<div class="fstyle">
         <h2>Formulaire de création de la cible</h2>
 
         <form action="admin.php" method="post">
@@ -48,7 +48,7 @@ echo "Bienvenue" . " " . $_SESSION['nom'];
 
         <input class="dd" type="submit" value="Créer" name="EnregistrerCible">
 </form>
-
+</div>
 
 <!-- ///////////////////////////PHP CREATION CIBLE -->
 
@@ -56,16 +56,13 @@ echo "Bienvenue" . " " . $_SESSION['nom'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['EnregistrerCible'])) {
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "AGENCE"; 
+    require_once 'pdo.php'; 
 
 
 
 try {
 
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
 
     // Prépare et exécute la requête SQL
     $sql = "INSERT INTO Cibles (Nom, Prenom, DateNaissance, NomDeCode, Nationalite) 
@@ -98,6 +95,8 @@ $conn = null;}
 
   <!-- ////////////////////////////////////UPDATE NOM CIBLE -->
 
+  <div class="fstyle">
+
   <h2>Changement Valeurs de cible. Renseignez l'id, laissez vide les champs que vous ne voulez pas modifier, les anciennes valeurs seront conservées.</h2>
 
 <form action="admin.php" method="post">
@@ -124,19 +123,17 @@ $conn = null;}
 
 </form>
 
+</div>
 <!-- /////////////////////////////PHP UPDATE CIBLE -->
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ChangerCible'])) {
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "AGENCE"; 
+    require_once 'pdo.php'; 
 
 try {
 
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
 
 // ///////////////////On récupère les anciennes valeurs si champs vides
 $sql_select = "SELECT Nom, Prenom, DateNaissance, NomDeCode, Nationalite FROM Cibles WHERE CibleID = :CibleID";
@@ -188,7 +185,7 @@ $conn = null;
 
   <!-- /////////////////////////////////////////////DELETE CIBLE -->
 
-
+  <div class="fstyle">
   <h2>Formulaire de suppression la cible</h2>
 
 <form action="admin.php" method="post">
@@ -199,21 +196,18 @@ $conn = null;
 <input type="submit" class="dd" value="Supprimer" name="SupprCible">
 
 </form>
-
+</div>
 <!-- //////////////////////////////////////PHP DELETE CIBLE -->
 <?php
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['SupprCible'])) {
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "AGENCE"; 
+    require_once 'pdo.php'; 
 
 try {
 
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
 
 
 
@@ -236,6 +230,8 @@ $conn = null;
 
 
 <!-- //////////////////////////////INSERT CONTACT -->
+
+<div class="fstyle">
 
 <h2>Ajouter un nouveau contact</h2>
 
@@ -260,20 +256,18 @@ $conn = null;
         <input type="submit" class="dd" value="Créer" name="NouveauContact">
     </form>
 
+</div>
 
 <!-- //////////////////////////////////////PHP INSERT CONTACT -->
 
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['NouveauContact'])) {
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "AGENCE"; 
+    require_once 'pdo.php'; 
 
 try {
 
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
 
 
     $sql = "INSERT INTO Contacts (Nom, Prenom, DateNaissance, NomDeCode, Nationalite)
@@ -305,6 +299,8 @@ $conn = null;
 
 
 <!-- ///////////////////////////////UPDATE CONTACT -->
+<div class="fstyle">
+
 <h2>Modifier un contact, renseignez l'id, laissez vide les champs que vous ne voulez pas modifier, les anciennes valeurs seront conservées</h2>
 
     <form action="admin.php" method="post">
@@ -331,19 +327,18 @@ $conn = null;
         <input type="submit" class="dd" value="Modifier" name="ModifierContact">
     </form>
 
+</div>
+
 <!-- //////////////////////////////////////PHP UPDATE CONTACT -->
 
     <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ModifierContact'])) {
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "AGENCE"; 
+    require_once 'pdo.php'; 
 
 try {
 
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
 
 
     $sql_select = "SELECT Nom, Prenom, DateNaissance, NomDeCode, Nationalite FROM Contacts WHERE ContactID = :ContactID";
@@ -397,6 +392,8 @@ $conn = null;
 
 <!-- ////////////////////////////////DELETE CONTACT -->
 
+<div class="fstyle">
+
 <h2>Formulaire de suppression d'un contact</h2>
 
 <form action="admin.php" method="post">
@@ -407,19 +404,16 @@ $conn = null;
 <input type="submit" class="dd" value="Supprimer" name="SupprContact">
 </form>
 
-
+</div>
 <!-- ///////////////////////////////////PHP DELETE CONTACT -->
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['SupprContact'])) {
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "AGENCE"; 
+    require_once 'pdo.php'; 
 
 try {
 
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
 
 
     $idContact = $_POST['IdContact'];
@@ -453,6 +447,8 @@ $conn = null;
 
 <!-- /////////////////////////INSERT NOUVELLE PLANQUE -->
 
+<div class="fstyle">
+
 <h2>Ajouter une nouvelle planque</h2>
 
 <form action="admin.php" method="POST">
@@ -471,20 +467,19 @@ $conn = null;
     <input type="submit" class="dd" value="Créer" name="NewPlanque">
 </form>
 
+</div>
+
 <!-- ///////////////////////PHP INSERT NOUVELLE PLANQUE -->
 
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['NewPlanque'])) {
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "AGENCE"; 
-    
+    require_once 'pdo.php'; 
+
     try {
     
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
 
 
         $sql = "INSERT INTO Planques (Code, Adresse, Pays, Type) VALUES (:code, :adresse, :pays, :type)";
@@ -510,6 +505,8 @@ $conn = null;
 
 <!-- ////////////////////////UPDATE PLANQUE -->
 
+<div class="fstyle">
+
 <h2>Modifier la planque, En renseignant l'id. Laissez vide les champs pour conserver les anciennes valeurs</h2>
 <form action="admin.php" method="POST">
 
@@ -531,19 +528,16 @@ $conn = null;
 
     <input type="submit" class="dd" value="Modifier" name="ChangePlanque">
 </form>
-
+</div>
 <!-- //////////////////////////////////////PHP UPDATE PLANQUE -->
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ChangePlanque'])) {
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "AGENCE"; 
+    require_once 'pdo.php'; 
     
     try {
     
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
 
 
         $sql_select = "SELECT Code, Adresse, Pays, Type FROM Planques WHERE PlanqueID = :PlanqueID";
@@ -584,7 +578,7 @@ $conn=null;
 
 <!-- ///////////////////////////////////////DELETE PLANQUE -->
 
-
+<div class="fstyle">
 <h2>Formulaire de suppression d'une planque</h2>
 
 <form action="admin.php" method="post">
@@ -595,21 +589,18 @@ $conn=null;
 <input type="submit" class="dd" value="Supprimer" name="SupprPlanque">
 
 </form>
-
+</div>
 <!-- /////////////////////////////PHP DELETE PLANQUE -->
 
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['SupprPlanque'])) {
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "AGENCE"; 
+    require_once 'pdo.php'; 
 
 try {
 
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
 
     $sql = "DELETE FROM Planques WHERE PlanqueID = :PlanqueID";
     $stmt = $conn->prepare($sql);
@@ -630,6 +621,8 @@ $conn=null;
 ?>
 
 <!-- ///////////////////////////////INSERT AGENTS -->
+<div class="fstyle">
+
 <h2>Formulaire pour créer les agents</h2>
 
     <form action="admin.php" method="POST">
@@ -655,20 +648,19 @@ $conn=null;
         <input type="submit" class="dd" value="Créer" name="CreerAgent">
 
     </form>
+
+</div>
     
 <!-- ////////////////////////////PHP INSERT AGENTS -->
     <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['CreerAgent'])) {
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "AGENCE"; 
+    require_once 'pdo.php'; 
     
     try {
     
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
 
         
 
@@ -700,6 +692,7 @@ $conn=null;
 
 
 <!-- ////////////////////////////////UPDATE AGENTS -->
+<div class="fstyle">
 <h2>Formulaire pour modifier les données des agents, laissez vide les champs que vous ne voulez pas modifier, les anciennes valeurs seront conservées</h2>
 
     <form action="admin.php" method="POST">
@@ -728,6 +721,7 @@ $conn=null;
         <input type="submit" class="dd" value="Créer" name="ModifAgent">
 
     </form>
+</div>
 
 <!-- /////////////////////PHP UPDATE AGENTS -->
 
@@ -735,14 +729,11 @@ $conn=null;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ModifAgent'])) {
     
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "AGENCE"; 
+    require_once 'pdo.php'; 
 
 try {
 
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
 
     $sql_select = "SELECT Nom, Prenom, DateNaissance, CodeIdentification, Nationalite, Specialite FROM Agents WHERE AgentID = :AgentID";
     $stmt_select = $conn->prepare($sql_select);
@@ -790,6 +781,7 @@ $conn=null;
 ?>
 
 <!-- ///////////////////////////////FORMULAIRE DELETE AGENTS -->
+<div class="fstyle">
 <h2>Formulaire de suppression d'un agent</h2>
 
 <form action="admin.php" method="post">
@@ -800,19 +792,17 @@ $conn=null;
 <input type="submit" class="dd" value="Supprimer" name="SupprAgent">
 
 </form>
+</div>
 <!-- ///////////////////////////////////////PHP DELETE AGENTS -->
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['supprAgent'])) {
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "AGENCE"; 
+    require_once 'pdo.php'; 
 
 try {
 
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
 
 
 $sql = "DELETE FROM Agents WHERE AgentID = :idAgent";
@@ -835,7 +825,7 @@ $conn=null;
 
 
 <!-- ///////////////////FORMULAIRE INSERT ADMINS -->
-
+<div class="fstyle">
 
 <h2>Ajouter un nouvel administrateur</h2>
 
@@ -858,20 +848,17 @@ $conn=null;
 
         <input type="submit" class="dd" value="Créer" name="CréerAdmin">
     </form>
-
+</div>
 
     <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['CréerAdmin'])) {
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "AGENCE"; 
+require_once 'pdo.php'; 
 
 try {
 
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
 
 
 
@@ -904,6 +891,8 @@ $conn=null;
 
 <!-- ////////////////////////////////UPDATE ADMINS -->
 
+<div class="fstyle">
+
 <h2>Modifier un administrateur, laissez vide les champs que vous ne voulez pas modifier, les anciennes valeurs seront conservées</h2>
 
     <form action="admin.php" method="POST">
@@ -928,7 +917,7 @@ $conn=null;
 
         <input type="submit" class="dd" value="Modifier" name="ModifAdmin">
     </form>
-
+</div>
 
     <!-- ////////////////////////////////////PHP UPDATE ADMINS -->
 
@@ -938,14 +927,11 @@ $conn=null;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ModifAdmin'])) {
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "AGENCE"; 
+    require_once 'pdo.php'; 
     
     try {
     
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
 
 
         $sql_select = "SELECT Nom, Prenom, AdresseMail, DateCreation, Nationalite, Specialite, Pass FROM Admins WHERE AdminID = :AdminID";
@@ -989,6 +975,7 @@ $conn=null;
 ?>
 
 <!-- ////////////////////////FORMULAIRE DELETE ADMIN -->
+<div class="fstyle">
 
 <h2>Formulaire de suppression d'un admin</h2>
 
@@ -1000,6 +987,7 @@ $conn=null;
 <input type="submit" class="dd" value="Supprimer" name="SupprAdmin">
 
 </form>
+</div>
 
 <!-- //////////////////////////////PHP DELETE ADMIN -->
 
@@ -1008,14 +996,11 @@ $conn=null;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['SupprAdmin'])) {
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "AGENCE"; 
+    require_once 'pdo.php'; 
 
 try {
 
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+
     $sql = "DELETE FROM Admins WHERE AdminID = :AdminID";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':AdminID', $_POST['IdAdmin']);
@@ -1031,7 +1016,7 @@ $conn=null;
 
 
 
-
+<div class="fstyle">
 
 <h2>Formulaire de création de mission</h2>
 
@@ -1083,21 +1068,17 @@ $conn=null;
     <input type="submit" class="dd" value="Créer" name="EnregistrerMission">
 </form>
 
-
+</div>
 
 <?php
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['EnregistrerMission'])) {
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "AGENCE"; 
+    require_once 'pdo.php'; 
 
 try {
 
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
     // ///////////////////////////////////////////////////////NATIONALITE CIBLES ET AGENTS INCOMPATBLE CONDITION 1
 
@@ -1242,6 +1223,8 @@ $conn=null;}
 
 <!-- //////////////SUPPRIMER MISSION -->
 
+<div class="fstyle">
+
 
 <h2>Formulaire de suppression d'une mission</h2>
 
@@ -1254,19 +1237,15 @@ $conn=null;}
 
 </form>
 
+</div>
 
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['SupprMission'])) {
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "AGENCE"; 
+    require_once 'pdo.php'; 
 
 try {
-
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
 
 
